@@ -26,6 +26,7 @@ int min(int num1, int num2, int num3) //accept 3 numbers, and return the smalles
 void f1(int mat[SIZE][SIZE]) //accept matrix pointer. scan elements from user and insert to metrix. operate Floyd–Warshall_algorithm.
 {
     int i, j, k;
+    int mat2[SIZE][SIZE];
     for(i = 0; i < SIZE; i++) //insert numbers 
     {
         for(j = 0; j < SIZE; j++)
@@ -39,7 +40,14 @@ void f1(int mat[SIZE][SIZE]) //accept matrix pointer. scan elements from user an
         {
             for(j = 0; j < SIZE; j++)
             {
-                mat[i][j] = min(mat[i][j], mat[i][k], mat[k][j]);
+                mat2[i][j] = min(mat[i][j], mat[i][k], mat[k][j]);
+            }
+        }
+        for(i = 0; i < SIZE; i++)
+        {
+            for(j = 0; j < SIZE; j++)
+            {
+                mat2[i][j] = mat[i][j]);
             }
         }
     }
