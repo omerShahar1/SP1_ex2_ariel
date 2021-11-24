@@ -3,7 +3,7 @@
 #include "my_mat.h"
 #define SIZE 10
 
-int sum(int mat[SIZE][SIZE])
+int sum(int mat[SIZE][SIZE]) //return the sum of all the numbers in the matrix (matrix values are 0 or bigger).
 {
     int i, j, answer=0;
     for(i = 0; i < SIZE; i++) 
