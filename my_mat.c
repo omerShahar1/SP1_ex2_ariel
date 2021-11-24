@@ -47,7 +47,7 @@ void f1(int mat[SIZE][SIZE]) //accept matrix pointer. scan elements from user an
         {
             for(j = 0; j < SIZE; j++)
             {
-                mat2[i][j] = mat[i][j]);
+                mat2[i][j] = mat[i][j];
             }
         }
     }
