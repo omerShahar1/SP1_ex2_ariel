@@ -4,28 +4,38 @@
 
 int main()
 {
-int mat[SIZE][SIZE];
-char ch;
+    int mat[SIZE][SIZE];  
+    // {{0, 3, 1, 0, 0, 2, 0, 0, 0, 0}, 
+    // {3, 0, 1, 0, 0, 0, 0, 0, 0, 0}, 
+    // {1, 1, 0, 0, 0, 0, 0, 0, 0, 0}, 
+    // {0, 0, 0, 0, 0, 0, 0, 5, 0, 0}, 
+    // {0, 0, 0, 0, 0, 0, 0, 4, 1, 1}, 
+    // {2, 0, 0, 0, 0, 0, 2, 0, 0, 0}, 
+    // {0, 0, 0, 0, 0, 2, 0, 0, 0, 0}, 
+    // {0, 0, 0, 5, 4, 0, 0, 0, 0, 2}, 
+    // {0, 0, 0, 0, 1, 0, 0, 0, 0, 0}, 
+    // {0, 0, 0, 0, 1, 0, 0, 2, 0, 0}};
+    char ch;
 
-do {
-    scanf("%c", &ch);
-    if(ch == 'A')
-    {
-        f1(mat);
-        continue;
-    }
-    if(ch == 'B')
-    {
-        f2(mat);
-        continue;
-    }
-    if(ch == 'C')
-    {
-        f3(mat);
-        continue;
-    }
-    
-} while(ch != 'D');
+    do {
+        scanf("%c", &ch);
+        if(ch == 'A')
+        {
+            f1(mat);
+            continue;
+        }
+        if(ch == 'B')
+        {
+            f2(mat);
+            continue;
+        }
+        if(ch == 'C')
+        {
+            f3(mat);
+            continue;
+        }
+        
+    } while(ch != 'D');
 
-return 0;
+    return 0;
 }

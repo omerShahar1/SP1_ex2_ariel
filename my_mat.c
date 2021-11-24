@@ -3,30 +3,22 @@
 #include "my_mat.h"
 #define SIZE 10
 
-int min(int num1, int num2, int num3) //accept 3 numbers, and return the smallest combination (num1 or num2+num3)
+int sum(int mat[SIZE][SIZE])
 {
-    //0 represent no connection so if num1==0 we will return the other option
-    if(num1 == 0)
+    int i, j, answer=0;
+    for(i = 0; i < SIZE; i++) 
     {
-        return (num2 + num3);
+        for(j = 0; j < SIZE; j++)
+        {
+            answer += mat[i][j];
+        }
     }
-    //0 represent no connection so if num2==0 and num3==0 we will return the other option
-    if(num2 == 0 && num3 == 0)
-    {
-        return num1;
-    }
-    //check smallest number combination (we know both combinations are bigger then 0)
-    if (num1 < (num2 + num3))
-    {
-        return num1;
-    }
-    return (num2 + num3);
+    return answer;
 }
 
 void f1(int mat[SIZE][SIZE]) //accept matrix pointer. scan elements from user and insert to metrix. operate Floyd–Warshall_algorithm.
 {
-    int i, j, k;
-    int mat2[SIZE][SIZE];
+    int i, j, k, max;
     for(i = 0; i < SIZE; i++) //insert numbers 
     {
         for(j = 0; j < SIZE; j++)
@@ -34,20 +26,37 @@ void f1(int mat[SIZE][SIZE]) //accept matrix pointer. scan elements from user an
             scanf("%d", &mat[i][j]);
         }
     }
-    for(k = 0; k < SIZE; k++) //operate Floyd–Warshall_algorithm.
+    max = sum(mat) + 1;
+    for(i = 0; i < SIZE; i++) //swich cells with 0 exept diagnle to the max vlaue. 
     {
-        for(i = 0; i < SIZE; i++)
+        for(j = 0; j < SIZE; j++)
         {
-            for(j = 0; j < SIZE; j++)
+            if(i!=j && mat[i][j]==0)
             {
-                mat2[i][j] = min(mat[i][j], mat[i][k], mat[k][j]);
+                mat[i][j] = max;
             }
         }
-        for(i = 0; i < SIZE; i++)
+    }
+    for(k = 0; k < SIZE; k++) //operate Floyd–Warshall_algorithm.
+    {
+        for (i = 0; i < SIZE; i++) 
         {
-            for(j = 0; j < SIZE; j++)
+            for (j = 0; j < SIZE; j++) 
             {
-                mat2[i][j] = mat[i][j];
+                if (mat[i][k] + mat[k][j] < mat[i][j])
+                {
+                    mat[i][j] = mat[i][k] + mat[k][j];
+                }
+            }
+        }
+    }
+    for(i = 0; i < SIZE; i++) //swich bad cells back to 0.
+    {
+        for(j = 0; j < SIZE; j++)
+        {
+            if(i!=j && mat[i][j]==max)
+            {
+                mat[i][j] = 0;
             }
         }
     }
