@@ -33,7 +33,7 @@ void f1(int mat[SIZE][SIZE]) //accept matrix pointer. scan elements from user an
             scanf("%d", &mat[i][j]);
         }
     }
-    for(k = 1; k <= SIZE; k++) //operate Floyd–Warshall_algorithm.
+    for(k = 0; k < SIZE; k++) //operate Floyd–Warshall_algorithm.
     {
         for(i = 0; i < SIZE; i++)
         {
