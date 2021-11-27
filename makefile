@@ -20,4 +20,4 @@ main.o: main.c my_mat.h
 .PHONY: clean
 
 clean:
-	rm -f main.o my_mat.o a connections
+	rm -f main.o my_mat.o connections
